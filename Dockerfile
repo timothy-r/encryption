@@ -10,6 +10,7 @@ RUN apt-get -y install nginx php5-common php5-cli php5-fpm php-apc php5-mcrypt
 RUN mkdir /home/app
 RUN mkdir /home/app/build
 RUN mkdir /home/app/web
+RUN mkdir /home/app/config
 
 # Setup nginx
 ADD build/default /etc/nginx/sites-available/default
@@ -22,6 +23,7 @@ RUN mv composer.phar /usr/local/bin/composer
 
 # Move files into place
 ADD web/ /home/app/web
+ADD config/ /home/app/config
 ADD composer.json /home/app/
 ADD build/ /home/app/build
 
