@@ -5,7 +5,7 @@ MAINTAINER Tim Rodger
 EXPOSE 80
 
 # Start the server
-CMD service php5-fpm start && nginx
+CMD ./build/run.sh
 
 # Install dependencies
 RUN apt-get update -qq
