@@ -1,9 +1,9 @@
 #!/bin/bash
 # inject the environmental variables into php using the fastcgi_params provided by nginx
 
-if [ $KEY_NAME ]; then
-    echo "setting KEY_NAME to $KEY_NAME"
-    echo "fastcgi_param KEY_NAME $KEY_NAME;" >> /etc/nginx/fastcgi_params
-fi
+for v in `env | egrep VAR_`
+do
+    echo $v | awk -F = '{print "fastcgi_param",$1,$2";"}' >> /etc/nginx/fastcgi_params
+done
 
 service php5-fpm start && nginx

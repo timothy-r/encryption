@@ -6,7 +6,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 $app = new Silex\Application(); 
 
-$key_name = getenv('KEY_NAME');
+$key_name = getenv('VAR_KEY_NAME');
 $pub_key_file = __DIR__."/../config/mykey.pub";
 $priv_key_file = __DIR__."/../config/mykey.pem";
 
