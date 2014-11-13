@@ -25,7 +25,6 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 
 # Move files into place
 ADD web/ /home/app/web
-ADD config/ /home/app/config
 ADD composer.json /home/app/
 ADD composer.lock /home/app/
 ADD build/ /home/app/build
