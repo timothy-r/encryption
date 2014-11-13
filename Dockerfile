@@ -27,8 +27,13 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 ADD web/ /home/app/web
 ADD config/ /home/app/config
 ADD composer.json /home/app/
+ADD composer.lock /home/app/
 ADD build/ /home/app/build
 
 # Install dependencies
 WORKDIR /home/app
 RUN composer install --prefer-dist
+
+# generate key files
+RUN openssl genrsa  -out config/mykey.pem 2048
+RUN openssl rsa -pubout -in config/mykey.pem -out config/mykey.pub 
