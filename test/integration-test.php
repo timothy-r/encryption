@@ -7,7 +7,9 @@ $server = $argv[1];
 $string = 'my text to encrypt';
 
 $encrypt_endpoint = sprintf('%s/encrypt', $server);
+echo "$encrypt_endpoint\n";
 $decrypt_endpoint = sprintf('%s/decrypt', $server);
+echo "$decrypt_endpoint\n";
 
 $client = new Client();
 $response = $client->post($encrypt_endpoint, ['body' => ['string' => $string]]);
