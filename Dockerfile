@@ -43,3 +43,6 @@ RUN composer install --prefer-dist
 # generate key files
 RUN openssl genrsa  -out config/mykey.pem 2048
 RUN openssl rsa -pubout -in config/mykey.pem -out config/mykey.pub 
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log
+RUN ln -sf /dev/stderr /var/log/nginx/error.log
